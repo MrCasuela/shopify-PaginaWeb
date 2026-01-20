@@ -247,7 +247,19 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
+      <div class="header__search-responsive">
+         <div class="large-up-hide">
+             {% render 'header-search', input_id: 'Search-In-Modal' %}
+         </div>
+         <div class="small-hide medium-hide header__search-inline-wrapper">
+             {%- if settings.predictive_search_enabled -%}
+             <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+             {%- else -%}
+             <search-form class="search-modal__form">
+             {%- endif -%}
+                 {% render 'header-search-inline', input_id: 'Search-In-Page' %}
+         </div>
+      </div>
 
       {%- if shop.customer_accounts_enabled -%}
         <a

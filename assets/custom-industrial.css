@@ -1,6 +1,6 @@
-/* Custom Industrial Theme Overrides */
+/* Maranello / High-Performance Theme Overrides */
 
-/* Force Hard Edges */
+/* Force Hard Edges & Sporty Typography */
 :root {
   --buttons-radius: 0px !important;
   --card-corner-radius: 0px !important;
@@ -8,50 +8,161 @@
   --media-radius: 0px !important;
   --variant-pills-radius: 0px !important;
   --badge-corner-radius: 0px !important;
+  
+  --font-heading-weight: 800 !important;
+  --font-body-weight-bold: 700 !important;
 }
 
-/* Typography Overrides */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+/* Typography Enhancements - Condensed/Technical Look */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .header__menu-item {
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 700;
+  letter-spacing: 0.05em; /* Slightly tighter for a condensed feel */
+  font-family: 'Oswald', 'Haas Grot Text R', var(--font-heading-family); /* Suggesting Oswald/Eurostile vibe */
 }
 
-/* Button Industrial Styling */
+/* Button - Racing Style */
 .button, .shopify-payment-button__button--unbranded {
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  border: 1px solid rgba(var(--color-button), 1);
+  letter-spacing: 0.15em;
+  font-weight: 800;
+  border: none;
+  background-color: #CC0000; /* Ferrari Red equivalent */
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform: skew(-10deg); /* The "Speed" Skew Effect */
 }
 
-.button:hover {
-   box-shadow: 0 0 10px rgba(var(--color-button), 0.5);
+/* Fix text inside skewed button so it remains upright */
+.button > *, .shopify-payment-button__button--unbranded > * {
+  display: inline-block;
+  transform: skew(10deg);
 }
 
-/* Card Styling for Dark Mode Pop */
+.button:hover, .shopify-payment-button__button--unbranded:hover {
+   background-color: #A30000; /* Darker Red on hover */
+   box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4);
+}
+
+.button--secondary {
+    background-color: transparent;
+    border: 2px solid #111111;
+    color: #111111;
+}
+.button--secondary:hover {
+    background-color: #111111;
+    color: #FFFFFF;
+}
+
+/* Card Styling - Technical & Clean */
 .card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #E5E5E5; /* Light grey technical border */
+  transition: all 0.2s ease;
 }
 
 .card:hover {
-  border-color: rgba(var(--color-button), 0.5);
-  transition: border-color 0.3s ease;
+  border-color: #CC0000; /* Red border on hover */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
 }
 
-/* Input Fields */
+.card__heading {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+/* Badges (Sale/Sold Out) */
+.badge {
+    transform: skew(-10deg);
+    border: none;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem;
+}
+.badge > * {
+    transform: skew(10deg);
+}
+
+/* Section Headings - Add a "Racing Stripe" underline */
+.title-wrapper-with-link .title {
+    position: relative;
+    display: inline-block;
+}
+.title-wrapper-with-link .title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #CC0000;
+    margin-top: 8px;
+    transform: skew(-20deg);
+}
+
+/* Input Fields - Solid & Heavy */
 .field__input, .customer .field input {
-    background-color: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: rgb(var(--color-foreground));
+    background-color: #FFFFFF;
+    border: 2px solid #E5E5E5;
+    color: #111111;
+    font-weight: 600;
 }
 
 .field__input:focus, .customer .field input:focus {
-    border-color: rgb(var(--color-button));
+    border-color: #CC0000;
     box-shadow: none;
 }
 
 /* Header Adjustments */
 .header {
-    border-bottom: 2px solid rgba(255,255,255,0.05);
+    border-bottom: 4px solid #CC0000; /* The signature red line */
+}
+
+.header__active-menu-item {
+    text-decoration: none;
+    border-bottom: 2px solid #CC0000;
+}
+
+/* Price Display */
+.price-item--regular {
+    color: #111111;
+    font-weight: 700;
+}
+.price-item--sale {
+    color: #CC0000;
+    font-weight: 800;
+}
+
+/* MARANELLO INLINE SEARCH */
+.header__search-responsive {
+    flex-grow: 1;
+    max-width: 500px;
+    margin: 0 2rem;
+}
+
+.header__search-inline-wrapper .field__input {
+    border: 2px solid #CC0000 !important;
+    background-color: #F8F8F8;
+    color: #000;
+}
+
+.header__search-inline-wrapper .field__label {
+    color: #666;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+.header__search-inline-wrapper .search__button {
+    background-color: #CC0000;
+    color: white;
+    height: 100%;
+    width: 50px;
+}
+
+.header__search-inline-wrapper .search__button:hover {
+    background-color: #A30000;
+}
+
+.header__search-inline-wrapper .search__button .svg-wrapper {
+   transform: scale(1.2); 
 }
