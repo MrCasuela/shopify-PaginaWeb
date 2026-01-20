@@ -1,0 +1,57 @@
+/* Custom Industrial Theme Overrides */
+
+/* Force Hard Edges */
+:root {
+  --buttons-radius: 0px !important;
+  --card-corner-radius: 0px !important;
+  --inputs-radius: 0px !important;
+  --media-radius: 0px !important;
+  --variant-pills-radius: 0px !important;
+  --badge-corner-radius: 0px !important;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+/* Button Industrial Styling */
+.button, .shopify-payment-button__button--unbranded {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  border: 1px solid rgba(var(--color-button), 1);
+}
+
+.button:hover {
+   box-shadow: 0 0 10px rgba(var(--color-button), 0.5);
+}
+
+/* Card Styling for Dark Mode Pop */
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  border-color: rgba(var(--color-button), 0.5);
+  transition: border-color 0.3s ease;
+}
+
+/* Input Fields */
+.field__input, .customer .field input {
+    background-color: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgb(var(--color-foreground));
+}
+
+.field__input:focus, .customer .field input:focus {
+    border-color: rgb(var(--color-button));
+    box-shadow: none;
+}
+
+/* Header Adjustments */
+.header {
+    border-bottom: 2px solid rgba(255,255,255,0.05);
+}
